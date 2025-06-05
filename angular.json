@@ -97,6 +97,39 @@
           }
         }
       }
+    },
+    "ng-mp-notification": {
+      "projectType": "library",
+      "root": "projects/ng-mp-notification",
+      "sourceRoot": "projects/ng-mp-notification/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ng-mp-notification/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ng-mp-notification/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ng-mp-notification/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ng-mp-notification/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }
