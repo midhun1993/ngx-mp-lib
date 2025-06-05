@@ -4,6 +4,7 @@ import {
   NgxMpWarningConfig,
   NgxMpAlertConfig,
   NgxMpGenericConfig,
+  Configuration,
 } from './ngx-mp-notifier';
 
 @Injectable({
@@ -25,7 +26,7 @@ export class NgxMpNotificationService {
     let _description = description === null ? undefined : description;
     let { ok, cancel } = conf;
     let instance: NgxMpNotifier = new NgxMpNotifier(
-      'warning',
+      conf,
       headline,
       _description,
     );
@@ -48,7 +49,7 @@ export class NgxMpNotificationService {
     let _description = description === null ? undefined : description;
     let { ok } = conf;
     let instance: NgxMpNotifier = new NgxMpNotifier(
-      'warning',
+      conf,
       headline,
       _description,
     );
@@ -57,7 +58,7 @@ export class NgxMpNotificationService {
   }
 
   /**
-   * alert
+   * generic
    * @param headline string
    * @param description string
    * @param conf <NgxMpAlertConfig>
@@ -68,8 +69,9 @@ export class NgxMpNotificationService {
     conf?: NgxMpGenericConfig,
   ): NgxMpNotifier {
     let _description = description === null ? undefined : description;
+    let config = conf ? conf : ({} as Configuration);
     let instance: NgxMpNotifier = new NgxMpNotifier(
-      'warning',
+      config,
       headline,
       _description,
     );

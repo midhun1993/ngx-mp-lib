@@ -19,7 +19,7 @@ export class AppComponent {
       "How are you",
       {
         ok: () => console.log("Okay"),
-        cancel: () => console.log("Cancel")
+        cancel: () => console.log("Cancel"),
       });
   }
 
