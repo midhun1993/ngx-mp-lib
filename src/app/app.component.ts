@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { NgMpNotificationService} from 'ng-mp-notification';
+import { NgxMpNotificationService} from 'ngx-mp-notification';
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet],
@@ -8,8 +8,8 @@ import { NgMpNotificationService} from 'ng-mp-notification';
   styleUrl: './app.component.scss'
 })
 export class AppComponent {
-  title = 'ng-mp-lib';
-  constructor(private notifier: NgMpNotificationService) {
+  title = 'ngx-mp-lib';
+  constructor(private notifier: NgxMpNotificationService) {
     
   }
   openWarning(){

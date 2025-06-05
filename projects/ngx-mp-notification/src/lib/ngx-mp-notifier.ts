@@ -2,7 +2,7 @@ export interface NotificationConfig {}
 
 type TypeOfNotifier = 'warning' | 'alert';
 
-export class NgMpNotifier {
+export class NgxMpNotifier {
   type: TypeOfNotifier;
   headline: string;
   description?: string;
@@ -15,14 +15,14 @@ export class NgMpNotifier {
   }
 
   public addAction(key: string, label: string, cb: () => void) {
-    let btn = this.createElement('button', 'ng-mp-btn');
+    let btn = this.createElement('button', 'ngx-mp-btn');
     btn.id = key;
     btn.textContent = label;
     btn.addEventListener('click', () => {
       this.done();
       cb();
     });
-    this.modal.querySelector('.ng-mp-action')?.appendChild(btn);
+    this.modal.querySelector('.ngx-mp-action')?.appendChild(btn);
   }
 
   public fire() {
@@ -30,8 +30,8 @@ export class NgMpNotifier {
   }
 
   private done() {
-    document.body.querySelector('.ng-mp-n-wrapper')?.remove();
-    document.getElementById('ng-mp-notification-overrides')?.remove();
+    document.body.querySelector('.ngx-mp-n-wrapper')?.remove();
+    document.getElementById('ngx-mp-notification-overrides')?.remove();
   }
   /**
    * attach model in page
@@ -46,7 +46,7 @@ export class NgMpNotifier {
   }
 
   private getStyles(modalLeft?: string, modalTop?: string, width?: string) {
-    return `.ng-mp-n-wrapper{position:fixed;max-width:100%;background:rgba(0,0,0,.2);box-shadow:0 4px 12px rgba(0,0,0,.15);font-family:Arial,sans-serif;color:#333;overflow:hidden;top:0;left:0;right:0;bottom:0}.ng-mp-n-cover{ box-sizing: border-box; position:absolute;top:${modalTop}px;left:${modalLeft}px;width:${width}px;background:#fff; padding: 20px;}.ng-mp-headline{font-size:1.25rem;font-weight:700;margin-bottom:8px;color:#d9534f;text-transform:uppercase;letter-spacing:.05em}.ng-mp-content{font-size:1rem;line-height:1.4;color:#555}`;
+    return `.ngx-mp-n-wrapper{position:fixed;max-width:100%;background:rgba(0,0,0,.2);box-shadow:0 4px 12px rgba(0,0,0,.15);font-family:Arial,sans-serif;color:#333;overflow:hidden;top:0;left:0;right:0;bottom:0}.ngx-mp-n-cover{ box-sizing: border-box; position:absolute;top:${modalTop}px;left:${modalLeft}px;width:${width}px;background:#fff; padding: 20px;}.ngx-mp-headline{font-size:1.25rem;font-weight:700;margin-bottom:8px;color:#d9534f;text-transform:uppercase;letter-spacing:.05em}.ngx-mp-content{font-size:1rem;line-height:1.4;color:#555}`;
   }
 
   private createElement(tag: string, cls?: string): HTMLElement {
@@ -58,18 +58,18 @@ export class NgMpNotifier {
   }
 
   private createModel(): HTMLElement {
-    let wrapperEl = this.createElement('div', 'ng-mp-n-wrapper');
-    let coverEl = this.createElement('div', 'ng-mp-n-cover');
+    let wrapperEl = this.createElement('div', 'ngx-mp-n-wrapper');
+    let coverEl = this.createElement('div', 'ngx-mp-n-cover');
 
-    let headlineEl = this.createElement('div', 'ng-mp-headline');
+    let headlineEl = this.createElement('div', 'ngx-mp-headline');
 
     headlineEl.innerText = 'Hello There';
 
     //content
-    let content = this.createElement('div', 'ng-mp-content');
+    let content = this.createElement('div', 'ngx-mp-content');
     content.innerHTML = '<p> Welcome to cosco </p>';
 
-    let action = this.createElement('div', 'ng-mp-action');
+    let action = this.createElement('div', 'ngx-mp-action');
     content.innerHTML = '<p> Welcome to cosco </p>';
 
     coverEl.appendChild(headlineEl);
@@ -82,7 +82,7 @@ export class NgMpNotifier {
 
   private applyVisualStyles() {
     // remove existing style
-    document.getElementById('ng-mp-notification-overrides')?.remove();
+    document.getElementById('ngx-mp-notification-overrides')?.remove();
 
     let widthOfPage = document.body.clientWidth;
     let elementWidth = widthOfPage - 50 < 400 ? widthOfPage - 60 : 400;
@@ -94,7 +94,7 @@ export class NgMpNotifier {
       String(elementWidth),
     );
     let styleElement = this.createElement('style');
-    styleElement.id = 'ng-mp-notification-overrides';
+    styleElement.id = 'ngx-mp-notification-overrides';
     styleElement.innerHTML = styleString;
     document.head.appendChild(styleElement);
   }

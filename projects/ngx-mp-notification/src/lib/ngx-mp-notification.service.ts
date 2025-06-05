@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
-import { NgMpNotifier, NotificationConfig } from './ng-mp-notifier';
+import { NgxMpNotifier, NotificationConfig } from './ngx-mp-notifier';
 
 @Injectable({
   providedIn: 'root',
 })
-export class NgMpNotificationService {
+export class NgxMpNotificationService {
   constructor() {}
   /**
    *
@@ -17,7 +17,7 @@ export class NgMpNotificationService {
     conf: NotificationConfig,
   ) {
     let _description = description === null ? undefined : description;
-    let instance: NgMpNotifier = new NgMpNotifier(
+    let instance: NgxMpNotifier = new NgxMpNotifier(
       'warning',
       headline,
       _description,

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "ng-mp-lib": {
+    "ngx-mp-lib": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/ng-mp-lib",
+            "outputPath": "dist/ngx-mp-lib",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -64,10 +64,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "ng-mp-lib:build:production"
+              "buildTarget": "ngx-mp-lib:build:production"
             },
             "development": {
-              "buildTarget": "ng-mp-lib:build:development"
+              "buildTarget": "ngx-mp-lib:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -98,23 +98,23 @@
         }
       }
     },
-    "ng-mp-notification": {
+    "ngx-mp-notification": {
       "projectType": "library",
-      "root": "projects/ng-mp-notification",
-      "sourceRoot": "projects/ng-mp-notification/src",
+      "root": "projects/ngx-mp-notification",
+      "sourceRoot": "projects/ngx-mp-notification/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/ng-mp-notification/ng-package.json"
+            "project": "projects/ngx-mp-notification/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/ng-mp-notification/tsconfig.lib.prod.json"
+              "tsConfig": "projects/ngx-mp-notification/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/ng-mp-notification/tsconfig.lib.json"
+              "tsConfig": "projects/ngx-mp-notification/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -122,7 +122,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/ng-mp-notification/tsconfig.spec.json",
+            "tsConfig": "projects/ngx-mp-notification/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

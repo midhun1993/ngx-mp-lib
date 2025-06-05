@@ -10,8 +10,8 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "ng-mp-notification": [
-        "./dist/ng-mp-notification"
+      "ngx-mp-notification": [
+        "./dist/ngx-mp-notification"
       ]
     },
     "skipLibCheck": true,
