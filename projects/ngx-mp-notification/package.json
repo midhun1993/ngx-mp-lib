@@ -1,6 +1,14 @@
 {
   "name": "ngx-mp-notification",
-  "version": "0.0.1",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/midhun1993/ngx-mp-lib.git"
+  },
+  "homepage": "https://midhun1993.github.io/angular-mp-package-docs/ngx-mp-notification",
+  "bugs": {
+    "url": "https://github.com/midhun1993/ngx-mp-lib/issues"
+  },
   "peerDependencies": {
     "@angular/common": "^19.2.0",
     "@angular/core": "^19.2.0"

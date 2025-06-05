@@ -33,7 +33,9 @@ export class AppComponent {
   }
 
   openGeneric(){
-     const notifier = this.notifier.generic("Hey There", "This is an generic")
+     const notifier = this.notifier.generic("Hey There", "This is an generic", {
+      closeModalOnOutsideClick: false      
+     })
       notifier.addAction("okay", "Okay", () => console.log("Okay"))
       notifier.addAction("maybe", "May be", () => console.log("May be"))
       notifier.addAction("cancel", "Cancel", () => console.log("Cancel"))
