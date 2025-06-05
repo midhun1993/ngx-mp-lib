@@ -1,4 +1,21 @@
-export interface NotificationConfig {}
+type VoidFunc = () => void;
+type Action = {
+  key: string;
+  label: string;
+  cb: VoidFunc;
+};
+
+export interface NgxMpGenericConfig {
+  actionList?: Action[];
+}
+
+export interface NgxMpWarningConfig extends NgxMpGenericConfig {
+  ok: VoidFunc;
+  cancel: VoidFunc;
+}
+export interface NgxMpAlertConfig extends NgxMpGenericConfig {
+  ok: VoidFunc;
+}
 
 type TypeOfNotifier = 'warning' | 'alert';
 
@@ -14,7 +31,7 @@ export class NgxMpNotifier {
     this.modal = this.createModel();
   }
 
-  public addAction(key: string, label: string, cb: () => void) {
+  public addAction(key: string, label: string, cb: VoidFunc) {
     let btn = this.createElement('button', 'ngx-mp-btn');
     btn.id = key;
     btn.textContent = label;
