@@ -1,64 +1,97 @@
+
 # NgxMpNotification
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.0.
+A lightweight and customizable Angular notification plugin.
 
-## Code scaffolding
-
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Installation:
 
 ```bash
-ng generate component component-name
+npm install ngx-mp-notification
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Usage:
 
-```bash
-ng generate --help
+### Import notification service in `app.component.ts`:
+
+```ts
+import { NgMpNotificationService} from 'ng-mp-notification';
+@Component({
+  selector: 'app-root',
+  templateUrl: './app.component.html',
+  styleUrl: './app.component.scss'
+})
+export class AppComponent {
+  constructor(
+    private notifier: NgMpNotificationService
+  ){}
+}
+```
+---
+
+### Alert:
+
+Function signature
+
+```ts
+alert(headline: string, description:string, conf:NgxMpAlertConfig ): void
 ```
 
-## Building
+#### Usage:
 
-To build the library, run:
+```ts
+    this.notifier.alert("Hey There", "This is an alert", {
+      ok: () => {}
+    })
+```
+---
 
-```bash
-ng build ngx-mp-notification
+### Warning:
+
+Function signature
+
+```ts
+alert(headline: string, description:string, conf:NgxMpWarningConfig ): void
 ```
 
-This command will compile your project, and the build artifacts will be placed in the `dist/` directory.
+#### Usage:
 
-### Publishing the Library
+```ts
+    this.notifier.warning("Hey There", "This is an warning", {
+      ok: () => {},
+      cancel: () => {}
+    })
+```
+---
 
-Once the project is built, you can publish your library by following these steps:
+### Generic:
 
-1. Navigate to the `dist` directory:
+Function signature
 
-   ```bash
-   cd dist/ngx-mp-notification
-   ```
-2. Run the `npm publish` command to publish your library to the npm registry:
-
-   ```bash
-   npm publish
-   ```
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
+```ts
+generic(headline: string, description:string, conf:NgxMpGenericConfig ): void
 ```
 
-## Running end-to-end tests
+#### Usage:
 
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
+```ts
+  const notifier = this.notifier.generic("Hey There", "This is an generic")
+  notifier.addAction("okay", "Okay", () => console.log("Okay"))
+  notifier.addAction("maybe", "May be", () => console.log("May be"))
+  notifier.addAction("cancel", "Cancel", () => console.log("Cancel"))
+  notifier.fire();
 ```
+### Override styles:
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+You can use below css variable in you `style.css` to override the styles
 
-## Additional Resources
+```css
+    --ngx-mp-n-wrapper-bg-color:  rgba(0, 0, 0, 0.2);
+    --ngx-mp-n-wrapper-font-family: Arial, sans-serif;
+    --ngx-mp-n-headline-font-size:  1.25rem;
+    --ngx-mp-n-headline-font-weight: 700;
+    --ngx-mp-n-headline-font-color:  #d9534f;
+    --ngx-mp-n-content-font-size: 1rem;
+    --ngx-mp-n-content-font-color:  #555;
+    --ngx-mp-n-action-font-size: 1rem
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+```
